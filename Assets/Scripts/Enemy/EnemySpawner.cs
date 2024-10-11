@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private float _spawnDistance = 1f;
 
+
     private Vector2 _spawnPosition;
     private Camera _camera;
 
@@ -36,8 +38,13 @@ public class EnemySpawner : MonoBehaviour
         SetSpawnTime();
     }
 
+    public UnityEvent OnEnemiesDie;
     private void Update()
     {
+        if (_enemyCount == _maxEnemyCount && FindObjectOfType<EnemyMovement>()==null)
+        {
+            OnEnemiesDie.Invoke();
+        }
         _spawnTime -= Time.deltaTime;
         if(_spawnTime <= 0 && _enemyCount < _maxEnemyCount)
         {
