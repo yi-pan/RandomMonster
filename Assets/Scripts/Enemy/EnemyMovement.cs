@@ -6,16 +6,20 @@ using UnityEngine.Timeline;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField]
+    private GameController _gameController;
     private float _speed;
-
-    [SerializeField]
     private float _rotationSpeed;
 
     private Rigidbody2D _rigidbody;
     private PlayerAwarenessController _controller;
     private Vector2 _targetDirection = Vector2.zero;
 
+    private void Start()
+    {
+        _gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        _speed = _gameController.enemyASpeed;
+        _rotationSpeed = _gameController.enemyARotationSpeed;
+    }
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();

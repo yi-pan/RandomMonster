@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class PlayerAwarenessController : MonoBehaviour
 {
+    private GameController _gameController;
     public bool AwareOfPlayer { get; private set; }
     public Vector2 DirectiontoPlayer { get; private set; }
 
-    [SerializeField]
     private float _playerAwarenessDistance;
 
     private Transform _player;
-
+    private void Start()
+    {
+        _gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        _playerAwarenessDistance = _gameController.playerAwarenessDistance;
+    }
     private void Awake()
     {
         _player = FindObjectOfType<PlayerMovement>().transform;

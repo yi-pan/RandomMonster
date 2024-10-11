@@ -8,7 +8,8 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField]
     private GameObject _bulletPrefab;
 
-    [SerializeField]
+    private GameController _gameController;
+
     private float _bulletSpeed;
 
     private bool _firing;
@@ -18,10 +19,14 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField]
     private Transform _gunOffset;
 
-    [SerializeField]
     private float _timeBetweenShots;
 
-
+    private void Start()
+    {
+        _gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        _bulletSpeed = _gameController.playerBulletSpeed;
+        _timeBetweenShots = _gameController.playerTimeBetweenShots;
+    }
     // Update is called once per frame
     void Update()
     {

@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    [SerializeField]
-    private float _damage = 20;
-
+    
+    private float _damage;
+    private GameController _gameController;
+    private void Start()
+    {
+        _gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        _damage = _gameController.enemyADamage;
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<PlayerMovement>())

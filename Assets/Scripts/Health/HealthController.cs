@@ -3,15 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Events;
+using TMPro;
+using System;
 
 public class HealthController : MonoBehaviour
 {
-    [SerializeField]
-    private float _health;
+    private GameController _gameController;
 
-    [SerializeField]
+    private float _health;
     private float _maxHealth;
 
+    [SerializeField]
+    private GameObject _healthUIText;
+    private void Start()
+    {
+        // Find the GameController object and get the GameController script
+        _gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        _health = _gameController.playerMaxHealth;
+        _maxHealth = _gameController.playerMaxHealth;
+        // change UI
+        string healthString = _health.ToString();
+        _healthUIText.GetComponent<TMP_Text>().text = healthString;
+    }
     public float RemainingHealthPercentage
     {
         get
@@ -50,6 +63,11 @@ public class HealthController : MonoBehaviour
         }
 
         OnHealthChanged.Invoke();
+        // change UI
+        string healthString = _health.ToString();
+        _healthUIText.GetComponent<TMP_Text>().text = healthString;
+        // update player current health in GameController
+        _gameController.playerCurrentHealth = _health;
     }
 
     public void AddHealth(float healthToAdd)

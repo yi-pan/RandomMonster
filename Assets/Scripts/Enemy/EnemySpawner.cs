@@ -8,28 +8,25 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private GameObject _enemyPrefab;
 
-    private float _enemyCount;
-
-    [SerializeField]
     private float _minSpawnTime;
-
-    [SerializeField] 
     private float _maxSpawnTime;
-
     private float _spawnTime;
 
-    [SerializeField]
+    private float _enemyCount;
     private int _maxEnemyCount;
+    private float _spawnDistance;
 
-    [SerializeField]
-    private float _spawnDistance = 1f;
-
-
+    private GameController _gameController;
     private Vector2 _spawnPosition;
     private Camera _camera;
 
     private void Start()
     {
+        _gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        _minSpawnTime = _gameController.enemyAMinSpawnTime;
+        _maxSpawnTime = _gameController.enemyAMaxSpawnTime;
+        _maxEnemyCount = _gameController.enemyAMaxCount;
+        _spawnDistance = _gameController.enemyASpawnDistance;
         _camera = Camera.main;
     }
     private void Awake()

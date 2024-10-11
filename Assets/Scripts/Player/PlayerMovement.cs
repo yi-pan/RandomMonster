@@ -13,14 +13,22 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _currentVelocity;
     private Camera _camera;
 
-    [SerializeField]
+    private GameController _gameController;
+
+
     private float _speed;
-    [SerializeField]
-    private float _rotationSpeed;
-    [SerializeField]
-    private float _smoothTime = 0.1f;
-    [SerializeField]
+
+    private float _smoothTime;
+
     private float _screenBorder;
+
+    private void Start()
+    {
+        _gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        _speed = _gameController.playerSpeed;
+        _smoothTime = _gameController.playerMoveSmoothTime;
+        _screenBorder = _gameController.screenBorder;
+    }
 
     private void Awake()
     {
