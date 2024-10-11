@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1494892970216546091}
+  - component: {fileID: 4979533090640272829}
   - component: {fileID: 8528425911355431229}
   - component: {fileID: 2929321619852762438}
   - component: {fileID: 1636581346350020554}
@@ -32,11 +33,32 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4, y: 2, z: 0.05038583}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &4979533090640272829
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3658836763466697972}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 61769f5578c8d474ca49f3394f6a01fe, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &8528425911355431229
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -76,9 +98,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -467214109
-  m_SortingLayer: 4
+  m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 570179803, guid: d04f92fcafae62245a8a7464383f9db4, type: 3}
+  m_Sprite: {fileID: -1803571162, guid: c0caa1ffa51fe7a41943667f67f233a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -121,9 +143,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.023223734, y: 0}
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.23371749
 --- !u!50 &1636581346350020554
 Rigidbody2D:
   serializedVersion: 4
@@ -163,8 +185,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27169f339bddd224cb26caf46f65c07c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 1.5
-  _rotationSpeed: 1000
 --- !u!114 &6903975978456986310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,7 +197,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f979b9b8d9c0b2b4482e1f2d97d99544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerAwarenessDistance: 20
 --- !u!114 &4793757042161919910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,4 +209,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c31e2ad018b0a85438d4046f74f14abb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 20
