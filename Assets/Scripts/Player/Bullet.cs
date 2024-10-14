@@ -6,12 +6,18 @@ using UnityEngine.Tilemaps;
 public class Bullet : MonoBehaviour
 {
     private bool visible = true;
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         // bullet hit enemy
         if (collision.gameObject.GetComponent<EnemyMovement>())
         {
-            Destroy(collision.gameObject);
+            Animator animator = collision.gameObject.GetComponent<Animator>();
+            animator.SetBool("isDead", true);
+
+            //destroy enemy
+            Destroy(collision.gameObject, 2f);
+
             Destroy(gameObject);
         }
 
@@ -27,7 +33,7 @@ public class Bullet : MonoBehaviour
         visible = false;
     }
 
-    private void Update()
+    public void Update()
     {
         if (!visible)
         {

@@ -1196,7 +1196,7 @@ MonoBehaviour:
   playerBulletSpeed: 3
   playerTimeBetweenShots: 0.5
   screenBorder: 20
-  enemyADamage: 20
+  enemyADamage: 15
   enemyASpeed: 1.5
   enemyARotationSpeed: 1000
   playerAwarenessDistance: 20
