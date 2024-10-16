@@ -15,9 +15,10 @@ public class Bullet : MonoBehaviour
             Animator animator = collision.gameObject.GetComponent<Animator>();
             animator.SetBool("isDead", true);
 
+            collision.gameObject.GetComponent<EnemyAttack>().isDead = true;
+            Destroy(collision.gameObject.GetComponent<CircleCollider2D>());
             //destroy enemy
             Destroy(collision.gameObject, 2f);
-
             Destroy(gameObject);
         }
 

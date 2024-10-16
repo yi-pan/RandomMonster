@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Timeline;
+using static UnityEngine.GraphicsBuffer;
 
 public class EnemyMovement : MonoBehaviour
 {
     private GameController _gameController;
     private float _speed;
     private float _rotationSpeed;
+    private bool isFlipped = false; // track whether the enemy is flipped. default is toward right.
 
     private Rigidbody2D _rigidbody;
     private PlayerAwarenessController _controller;
@@ -28,9 +30,14 @@ public class EnemyMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        UpdateTargetDirection();
-        RotateTowardTarget();
-        SetVelocity();
+        if (!this.GetComponent<EnemyAttack>().isDead)
+        {
+            //transform.eulerAngles = Vector3.zero;
+            UpdateTargetDirection();
+            FlipTowardTarget();
+            //RotateTowardTarget();
+            SetVelocity();
+        }
     }
 
     private void UpdateTargetDirection()
@@ -43,6 +50,36 @@ public class EnemyMovement : MonoBehaviour
         {
             _targetDirection = Vector2.zero;
         }
+    }
+
+    private void FlipTowardTarget()
+    {
+        if (_targetDirection == Vector2.zero)
+        {
+            return;
+        }
+        else
+        {
+            if (_targetDirection.x >= 0 && isFlipped)
+            {
+                Flip();
+            }
+            else if (_targetDirection.x < 0 && !isFlipped)
+            {
+                Flip();
+            }
+        }
+    }
+
+    private void Flip()
+    {
+        // Flip the GameObject by inverting the X scale
+        Vector3 localScale = transform.localScale;
+        localScale.x *= -1;
+        transform.localScale = localScale;
+
+        // Toggle the isFlipped flag
+        isFlipped = !isFlipped;
     }
 
     private void RotateTowardTarget()
@@ -68,7 +105,8 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
-            _rigidbody.velocity = transform.up * _speed;
+
+            _rigidbody.velocity = _targetDirection * _speed;
         }
     }
 }

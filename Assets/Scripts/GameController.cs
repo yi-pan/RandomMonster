@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     // Player Variables
+    public Sprite newPlayerSprite;
+
     public float playerMaxHealth = 100f;
     public float playerCurrentHealth = 100f;
     public float playerSpeed = 2;
@@ -33,6 +35,9 @@ public class GameController : MonoBehaviour
     public float enemyASpawnDistance = 1;
 
     public static GameController instance;
+
+
+    private SpriteRenderer _playerSpriteRenderer;
 
     void Awake()
     {

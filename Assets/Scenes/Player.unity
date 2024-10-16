@@ -1188,12 +1188,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48e0bb8ad1ce27a468132a6ef9a10b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newPlayerSprite: {fileID: 0}
   playerMaxHealth: 100
   playerCurrentHealth: 100
-  playerSpeed: 2
+  playerSpeed: 3
   playerMoveSmoothTime: 0.05
   playerIncinvinbleDuration: 0.5
-  playerBulletSpeed: 3
+  playerBulletSpeed: 4
   playerTimeBetweenShots: 0.5
   screenBorder: 20
   enemyADamage: 15
@@ -1636,7 +1637,7 @@ GameObject:
   - component: {fileID: 1100455125}
   - component: {fileID: 1100455126}
   m_Layer: 0
-  m_Name: Graphics
+  m_Name: Player Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1719,8 +1720,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1369424099}
   - component: {fileID: 1369424097}
-  - component: {fileID: 1369424096}
   - component: {fileID: 1369424100}
+  - component: {fileID: 1369424096}
+  - component: {fileID: 1369424107}
   - component: {fileID: 1369424101}
   - component: {fileID: 1369424103}
   - component: {fileID: 1369424104}
@@ -1986,6 +1988,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0.2, y: 0}
   m_Size: {x: 1.3, y: 0.8}
   m_Direction: 1
+--- !u!114 &1369424107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369424095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5dd5528d80676c4393ab5a9d7b603de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1382404523
 GameObject:
   m_ObjectHideFlags: 0
