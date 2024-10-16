@@ -64,4 +64,9 @@ public class GameController : MonoBehaviour
     {
         return instance; // Returns the current instance of GameController
     }
+
+    public void GetPlayerHealth()
+    {
+        Application.ExternalCall("onUnityMessage", playerCurrentHealth);
+    }
 }

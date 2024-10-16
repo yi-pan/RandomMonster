@@ -5912,7 +5912,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2313662934898103407, guid: 39b2a5ef24bb4c24eaa94b23a60fbadf, type: 3}
       propertyPath: OnEnemiesDie.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
-      value: You WIn
+      value: You Win
       objectReference: {fileID: 0}
     - target: {fileID: 2313662934898103407, guid: 39b2a5ef24bb4c24eaa94b23a60fbadf, type: 3}
       propertyPath: OnEnemiesDie.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
