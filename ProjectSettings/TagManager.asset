@@ -47,11 +47,11 @@ TagManager:
   - name: Obstacles
     uniqueID: 2402194973
     locked: 0
-  - name: Bullets
-    uniqueID: 2501758557
-    locked: 0
   - name: Trap
     uniqueID: 1630283381
+    locked: 0
+  - name: Bullets
+    uniqueID: 2501758557
     locked: 0
   - name: Player
     uniqueID: 1500022087

@@ -10,18 +10,19 @@ public class DynamicImageLoader : MonoBehaviour
 
     void Start()
     {
+        spriteRenderer = GameObject.Find("Player Graphics").gameObject.GetComponent<SpriteRenderer>();
         // 禁用所有其他渲染器
-        DisableOtherRenderers();
+        //DisableOtherRenderers();
 
         // 获取或添加 SpriteRenderer
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer == null)
-        {
-            spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
-        }
+        //spriteRenderer = GetComponent<SpriteRenderer>();
+        //if (spriteRenderer == null)
+        //{
+        //    spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
+        //}
 
         // 设置排序层级，确保在Tilemap之上
-        spriteRenderer.sortingOrder = 10; // 可以根据需要调整这个值
+        // spriteRenderer.sortingOrder = 10; // 可以根据需要调整这个值
 
         // 确保Tilemap的Z轴位置为0
         transform.position = new Vector3(transform.position.x, transform.position.y, -2); // 将Sprite的Z轴设置为-1
