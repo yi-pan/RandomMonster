@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | Random Monster TopDown Shooter</title>
+  </head>
+  <body style="text-align: center; padding: 0; border: 0; margin: 0;">
+    <canvas id="unity-canvas" width=1280 height=720 tabindex="-1" style="width: 1280px; height: 720px; background: #231F20"></canvas>
+    <script src="Build/web.loader.js"></script>
+    <script>
+      var unityInstance; // 定义 unityInstance 变量
+
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "Build/web.data",
+        frameworkUrl: "Build/web.framework.js",
+        codeUrl: "Build/web.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "Random Monster",
+        productName: "Random Monster TopDown Shooter",
+        productVersion: "1.0",
+      }).then(instance => {
+        unityInstance = instance; // 将实例赋值给 unityInstance
+      });
+
+      function getPlayerHealth() {
+        // 调用 Unity 的 GetPlayerHealth 方法
+        unityInstance.SendMessage('GameController', 'GetPlayerHealth');
+      }
+
+      function onUnityMessage(playerHealth) {
+        alert("玩家当前健康值: " + playerHealth);
+      }
+    </script>
+
+    <button id="data" onclick="alert('成功！')">data</button>
+    
+    <button id="getHealth" onclick="getPlayerHealth()">获取玩家健康值</button>
+  </body>
+</html>
