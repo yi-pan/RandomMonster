@@ -22,19 +22,27 @@
       }).then(instance => {
         unityInstance = instance; // 将实例赋值给 unityInstance
       });
+    </script>
+
+    <div id="healthDisplay">玩家当前健康值: 0</div>
+    <script>
+      let playerHealth = 0; // 初始化健康值
 
       function getPlayerHealth() {
-        // 调用 Unity 的 GetPlayerHealth 方法
         unityInstance.SendMessage('GameController', 'GetPlayerHealth');
       }
 
-      function onUnityMessage(playerHealth) {
-        alert("玩家当前健康值: " + playerHealth);
+      function onUnityMessage(newHealth) {
+        playerHealth = newHealth; // 更新健康值
+        updateHealthDisplay(); // 立即更新显示
       }
-    </script>
 
-    <button id="data" onclick="alert('成功！')">data</button>
-    
-    <button id="getHealth" onclick="getPlayerHealth()">获取玩家健康值</button>
+      function updateHealthDisplay() {
+        document.getElementById("healthDisplay").innerText = "玩家当前健康值: " + playerHealth;
+      }
+
+      // 每秒更新一次健康值显示
+      setInterval(getPlayerHealth, 1); // 改为每秒调用 getPlayerHealth
+    </script>
   </body>
 </html>
